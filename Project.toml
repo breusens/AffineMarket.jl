@@ -3,6 +3,9 @@ uuid = "e8485027-fa52-4ef7-bdbc-b455137b5358"
 authors = ["brent"]
 version = "0.1.0"
 
+[deps]
+VectorStoredArray = "619dcd67-d1cf-444f-8762-d8c7e6d56cc5"
+
 [compat]
 julia = "1"
 
