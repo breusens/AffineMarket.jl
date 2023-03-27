@@ -72,15 +72,16 @@ function UpdateState!(t0::Float32,t1::Float32,State::MarketState,NextState::Mark
     return nothing
 end
 
-function ExpectedObservations(t1::Float64,t2::Float64,State::MarketState,MD::MarketDynamics)
+function ExpectedObservations!(t1::Float32,t2::Float32,State::MarketState,out::Observations,MD::MarketDynamics)
     kappa=[x for x in 1:(MD.NF-1)]
     kappa=MD.k1*((MD.b).^kappa)
     DT=(t2-t1)/360
-    Y0=State.USD.X0
+    out.USD.X0=State.USD.X0
     drift=[State.USD.X0;State.USD.X]
-    drift=kappa.*diff(drift)*DT
-    Y=State.USD.X+drift
-    return Observations(Y0,Y,Y[end])
+    drift=-kappa.*diff(drift)*DT
+    out.USD.X=State.USD.X+drift                                                                                                                                                                                                                                    
+    out.USD.ON=out.USD.X[end]
+    return nothing
 end
 
 
