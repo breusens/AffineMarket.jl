@@ -1,5 +1,5 @@
 module AffineMarket
-export MarketDynamics,MarketState,Observations,ObservationsFromState!,UpdateState!,ExpectedObservations
+export MarketDynamics,MarketState,Observations,ObservationsFromState!,UpdateState!,ExpectedObservations!
 #include("VectorStoredArray.jl")
 using VectorStoredArray: StoredNode, Storage, StoredValue
 
@@ -71,7 +71,6 @@ function UpdateState!(t0::Float32,t1::Float32,State::MarketState,NextState::Mark
     NextState.USD.X=X
     return nothing
 end
-
 function ExpectedObservations!(t1::Float32,t2::Float32,State::MarketState,out::Observations,MD::MarketDynamics)
     kappa=[x for x in 1:(MD.NF-1)]
     kappa=MD.k1*((MD.b).^kappa)
