@@ -4,8 +4,13 @@ authors = ["brent"]
 version = "0.1.0"
 
 [deps]
-VectorStoredArray = "619dcd67-d1cf-444f-8762-d8c7e6d56cc5"
+
 FloatingNumberType= "8dba378f-9910-47f1-b06a-0d0e509a4feb"
+MarketModels = "da21768e-fab5-4743-b449-0ab7c67862bd"
+MarketData = "c83d9cef-a0b6-4d2e-b249-b0e08c324c4c"
+Batcher = "702d20c8-3338-4dfe-9cb9-8d587ebe59ee"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+
 [compat]
 julia = "1"
 
